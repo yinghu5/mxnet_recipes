@@ -1,4 +1,8 @@
 {% set build_number = "0" %}
+{% set mxnet_variant_version = "0.0.50" %}
+{% set mxnet_variant_str = "mkl" %}
+{% set mxnet_version = "master" %}
+{% set mxnet_blas_impl = "mkl" %}
 
 package:
   name: mxnet

@@ -1,0 +1,66 @@
+No numpy version specified in conda_build_config.yaml.  Falling back to default numpy value of 1.11
+WARNING:conda_build.metadata:No numpy version specified in conda_build_config.yaml.  Falling back to default numpy value of 1.11
+Adding in variants from internal_defaults
+INFO:conda_build.variants:Adding in variants from internal_defaults
+Attempting to finalize metadata for libmxnet
+INFO:conda_build.metadata:Attempting to finalize metadata for libmxnet
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', timeout('select timed out',))': /intel/linux-64/repodata.json
+WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', timeout('select timed out',))': /intel/linux-64/repodata.json
+WARNING:urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', timeout('select timed out',))': /intel/linux-64/repodata.json
+WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', timeout('select timed out',))': /intel/linux-64/repodata.json
+WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', timeout('select timed out',))': /intel/linux-64/repodata.json
+WARNING:urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', timeout('select timed out',))': /intel/linux-64/repodata.json
+Traceback (most recent call last):
+  File "/home/yhu5/miniconda2/bin/conda-build", line 11, in <module>
+    sys.exit(main())
+  File "/home/yhu5/miniconda2/lib/python2.7/site-packages/conda_build/cli/main_build.py", line 456, in main
+    execute(sys.argv[1:])
+  File "/home/yhu5/miniconda2/lib/python2.7/site-packages/conda_build/cli/main_build.py", line 447, in execute
+    verify=args.verify, variants=args.variants)
+  File "/home/yhu5/miniconda2/lib/python2.7/site-packages/conda_build/api.py", line 208, in build
+    notest=notest, need_source_download=need_source_download, variants=variants)
+  File "/home/yhu5/miniconda2/lib/python2.7/site-packages/conda_build/build.py", line 2314, in build_tree
+    notest=notest,
+  File "/home/yhu5/miniconda2/lib/python2.7/site-packages/conda_build/build.py", line 1324, in build
+    output_metas = expand_outputs([(m, need_source_download, need_reparse_in_env)])
+  File "/home/yhu5/miniconda2/lib/python2.7/site-packages/conda_build/render.py", line 735, in expand_outputs
+    for (output_dict, m) in _m.copy().get_output_metadata_set(permit_unsatisfiable_variants=False):
+  File "/home/yhu5/miniconda2/lib/python2.7/site-packages/conda_build/metadata.py", line 2038, in get_output_metadata_set
+    bypass_env_check=bypass_env_check)
+  File "/home/yhu5/miniconda2/lib/python2.7/site-packages/conda_build/metadata.py", line 721, in finalize_outputs_pass
+    permit_unsatisfiable_variants=permit_unsatisfiable_variants)
+  File "/home/yhu5/miniconda2/lib/python2.7/site-packages/conda_build/render.py", line 509, in finalize_metadata
+    exclude_pattern)
+  File "/home/yhu5/miniconda2/lib/python2.7/site-packages/conda_build/render.py", line 371, in add_upstream_pins
+    permit_unsatisfiable_variants, exclude_pattern)
+  File "/home/yhu5/miniconda2/lib/python2.7/site-packages/conda_build/render.py", line 359, in _read_upstream_pin_files
+    permit_unsatisfiable_variants=permit_unsatisfiable_variants)
+  File "/home/yhu5/miniconda2/lib/python2.7/site-packages/conda_build/render.py", line 143, in get_env_dependencies
+    channel_urls=tuple(m.config.channel_urls))
+  File "/home/yhu5/miniconda2/lib/python2.7/site-packages/conda_build/environ.py", line 738, in get_install_actions
+    locking=locking, timeout=timeout)
+  File "/home/yhu5/miniconda2/lib/python2.7/site-packages/conda_build/index.py", line 251, in get_build_index
+    platform=subdir)
+  File "/home/yhu5/miniconda2/lib/python2.7/site-packages/conda/exports.py", line 243, in get_index
+    index = _get_index(channel_urls, prepend, platform, use_local, use_cache, unknown, prefix)
+  File "/home/yhu5/miniconda2/lib/python2.7/site-packages/conda/common/io.py", line 88, in decorated
+    return f(*args, **kwds)
+  File "/home/yhu5/miniconda2/lib/python2.7/site-packages/conda/core/index.py", line 58, in get_index
+    index = fetch_index(channel_urls, use_cache=use_cache)
+  File "/home/yhu5/miniconda2/lib/python2.7/site-packages/conda/core/index.py", line 74, in fetch_index
+    index.update((rec, rec) for rec in sd.iter_records())
+  File "/home/yhu5/miniconda2/lib/python2.7/site-packages/conda/core/subdir_data.py", line 167, in iter_records
+    self.load()
+  File "/home/yhu5/miniconda2/lib/python2.7/site-packages/conda/core/subdir_data.py", line 147, in load
+    _internal_state = self._load()
+  File "/home/yhu5/miniconda2/lib/python2.7/site-packages/conda/core/subdir_data.py", line 218, in _load
+    mod_etag_headers.get('_mod'))
+  File "/home/yhu5/miniconda2/lib/python2.7/site-packages/conda/core/subdir_data.py", line 535, in fetch_repodata_remote_request
+    caused_by=e)
+conda.exceptions.CondaHTTPError: HTTP 000 CONNECTION FAILED for url <https://conda.anaconda.org/intel/linux-64/repodata.json>
+Elapsed: -
+
+An HTTP error occurred when trying to retrieve this URL.
+HTTP errors are often intermittent, and a simple retry will get you on your way.
+ProxyError(MaxRetryError("HTTPSConnectionPool(host='conda.anaconda.org', port=443): Max retries exceeded with url: /intel/linux-64/repodata.json (Caused by ProxyError('Cannot connect to proxy.', timeout('select timed out',)))",),)
+

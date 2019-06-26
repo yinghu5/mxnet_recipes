@@ -1,3 +1,9 @@
+{% set build_number = "0" %}
+{% set mxnet_variant_version = "0.0.50" %}
+{% set mxnet_variant_str = "mkl" %}
+{% set mxnet_version = "master" %}
+{% set mxnet_blas_impl = "mkl" %}
+
 package:
   name: py-mxnet
   version: {{ mxnet_version }}
@@ -6,7 +12,8 @@ source:
   git_url: https://github.com/apache/incubator-mxnet.git
   git_rev: {{ mxnet_version }}
   patches:
-    - 0005-conda-unbundle-libmxnet-DSO.patch
+#    - 0005-conda-unbundle-libmxnet-DSO.patch
+    - 05_pymxnet_setup.patch
 
 build:
   skip: True  # [win and vc<14]
@@ -18,21 +25,21 @@ requirements:
   host:
     - libmxnet {{ mxnet_version }}
     # https://github.com/apache/incubator-mxnet/issues/10295
-    - cython <0.28  # [not win]
+    - cython   # [not win]
     - python
     # Numpy's C API is not used
-    - numpy >=1.8.2,<=1.15.0
-    - requests >=2.18.4,<2.19.0
+    - numpy >=1.8.2
+    - requests >=2.18.4
     - setuptools
   run:
-    - numpy >=1.8.2,<=1.15.0
-    - requests >=2.18.4,<2.19.0
+    - numpy >=1.8.2
+    - requests >=2.18.4
     - python
     - libmxnet {{ mxnet_version }}
 
-test:
-  imports:
-    - mxnet
+#test:
+#  imports:
+#    - mxnet
 
 about:
   home: http://mxnet.io
